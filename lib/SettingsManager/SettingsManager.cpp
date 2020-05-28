@@ -72,7 +72,7 @@ void SettingsManagerClass::setDefaultSettings()
 
    if (!hasSetting("APName"))
    {
-      setSetting("APName", "FlyballETS");
+      setSetting("APName", "FlyballETS-test");
       saveSettings();
    }
 

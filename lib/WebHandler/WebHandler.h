@@ -9,6 +9,7 @@
 #include "WProgram.h"
 #endif
 
+#include "config.h"
 #include "SettingsManager.h"
 //#include <Hash.h>
 //#include <AsyncTCP.h>
@@ -19,6 +20,7 @@
 #include "RaceHandler.h"
 #include "Structs.h"
 #include "LightsController.h"
+#include <BatterySensor.h>
 
 class WebHandlerClass
 {

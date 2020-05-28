@@ -380,6 +380,13 @@ void loop()
       }
       Simulator.ChangeSimulatedRaceID(iSimulatedRaceID);
    }
+
+   //Read elapsed time and heap memory (serial only)
+   if (bSerialStringComplete && strSerialData == "TIME")
+   {
+      ESP_LOGI(__FILE__, "Elapsed system time: %llu. Heap caps free size: %i\n", GET_MICROS / 1000, heap_caps_get_free_size(MALLOC_CAP_8BIT));
+   }
+
 #endif
 
    //Dog0 fault RC button
@@ -466,12 +473,12 @@ void loop()
    }
 
    //heap memory monitor
-   long long llCurrentMillis = GET_MICROS / 1000;
+   /*long long llCurrentMillis = GET_MICROS / 1000;
    if (llCurrentMillis - llHeapPreviousMillis > llHeapInterval)
    {
       ESP_LOGI(__FILE__, "Elapsed system time: %llu. Heap caps free size: %i\n", GET_MICROS / 1000, heap_caps_get_free_size(MALLOC_CAP_8BIT));
       llHeapPreviousMillis = llCurrentMillis;
-   }
+   }*/
 
    if (RaceHandler.iCurrentDog != iCurrentDog)
    {
